@@ -1,5 +1,7 @@
 import math, random
 from panda3d.core import *
+from direct.showbase.ShowBase import ShowBase
+import SpaceJamClasses as spaceJamClasses
 
 def Cloud(radius = 1):
     x = 2 * random.random() - 1
@@ -29,14 +31,16 @@ def BaseballSeams(step, numSeams, B, F = 1):
     return Vec3(x, y, z)
 
 def createCircleX(self, objectModel="./Assets/Spaceships/DroneDefender/DroneDefender.obj"):
-    self.parent = self.loader.loadModel(objectModel)
+    #self.parent = self.loader.loadModel(objectModel)
     x = 0
     for i in range(25):
         theta = x
-        self.placeholder2 = self.render.attachNewNode("PlaceHolder") # Attaching a new node to the render scene graph.
-        self.placeholder2.setPos(200.0 * math.cos(theta), 200.0 * math.sin(theta), 0.0 * math.tan(theta))
-        self.placeholder2.setColor(1, 0, 0, 1)
-        self.parent.instanceTo(self.placeholder2)
+        self.placeholder2 = spaceJamClasses.XYZDrone(self.loader, objectModel, self.render, "XDrone", Vec3(200.0 * math.cos(theta),
+            200.0 * math.sin(theta), 0.0 * math.tan(theta)), (1, 0, 0, 1))
+        # self.placeholder2 = self.render.attachNewNode("PlaceHolder") # Attaching a new node to the render scene graph.
+        # self.placeholder2.setPos(200.0 * math.cos(theta), 200.0 * math.sin(theta), 0.0 * math.tan(theta))
+        # self.placeholder2.setColor(1, 0, 0, 1)
+        # self.parent.instanceTo(self.placeholder2)
         x = x + 0.5
 
 def createCircleZ(self, objectModel="./Assets/Spaceships/DroneDefender/DroneDefender.obj"):

@@ -42,6 +42,14 @@ class Drone(SphereCollideObject):
         tex = loader.loadTexture(texPath)
         self.modelNode.setTexture(tex, 1)
 
+class XYZDrone(SphereCollideObject):
+    def __init__(self, loader: Loader, modelPath: str, parentNode: NodePath, nodeName: str,
+        posVec: Vec3, RGB: tuple):
+        super(XYZDrone, self).__init__(loader, modelPath, parentNode, nodeName, Vec3(0, 0, 0), 3)
+        self.modelNode.setPos(posVec)
+        tex = self.modelNode.setColor(RGB)
+        self.modelNode.setName(nodeName)
+
 class Missile(SphereCollideObject):
     missileCount = 0
     fireModels = {}
