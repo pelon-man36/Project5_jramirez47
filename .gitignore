@@ -37,3 +37,4 @@ Thumbs.db
 # For example:
 # assets/large_textures/
 # models/high_poly_models/
+.venv
