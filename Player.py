@@ -131,7 +131,7 @@ class Player(SphereCollideObject):
     def Fire(self):
         if self.missileBay:
             travRate = self.missileDistance
-            aim = self.render.getRelativeVector(self.modelNode, Vec3.forward()) # Direction spaceship is facing.
+            aim = self.render.getRelativeVector(self.modelNode, Vec3.up()) # Direction spaceship is facing.
             aim.normalize() # Normalizing a vector makes it consistent all the time.
             fireSolution = aim * travRate
             inFront = aim * 150
